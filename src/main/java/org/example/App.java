@@ -1,12 +1,16 @@
 package org.example;
 
-import java.io.IOException;
+import org.example.http.HttpStatusChecker;
 
-public class App {
+public final class App {
 
+    private App() {
+    }
 
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) {
         System.out.println("Started program!");
 
+        System.out.println(new HttpStatusChecker()
+                .getStatusImage(200));
     }
 }

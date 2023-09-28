@@ -8,21 +8,22 @@ import static org.junit.Assert.assertThrows;
 public class HttpStatusCheckerTest {
 
     @Test
-    public void checkStatusCod200() {
+    public void testCheckStatusCod200() {
         // Given
         HttpStatusChecker hsc = new HttpStatusChecker();
 
         //When & Then
-        assertEquals("https://http.cat/200.jpg", hsc.getStatusImage(200));
+        assertEquals("https://http.cat/200.jpg",
+                hsc.getStatusImage(200));
     }
 
     @Test
-    public void checkStatusCod404() {
+    public void testCheckStatusCod404() {
         // Given
         HttpStatusChecker hsc = new HttpStatusChecker();
 
         //When & Then
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(HttpStatusCheckException.class, () ->
                 hsc.getStatusImage(600));
     }
 }
