@@ -23,7 +23,7 @@ public class HttpStatusCheckerTest {
         HttpStatusChecker hsc = new HttpStatusChecker();
 
         //When & Then
-        assertThrows(HttpStatusCheckException.class, () ->
+        assertThrows(HttpException.class, () ->
                 hsc.getStatusImage(600));
     }
 }

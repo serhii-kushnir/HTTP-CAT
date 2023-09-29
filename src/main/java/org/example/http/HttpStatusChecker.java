@@ -17,28 +17,32 @@ public final class HttpStatusChecker {
         return getResponse(code, getRequest(code));
     }
 
-    private String getResponse(final int code, final Request request) {
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                getHttpExeption(code);
-            }
-
-        } catch (IOException e) {
-            getHttpExeption(code);
-        }
-
-        return getUrl(code);
-    }
-
-    private static void getHttpExeption(final int code) {
-        throw new HttpStatusCheckException("Cat not found by code: " + code);
-    }
-
     private Request getRequest(final int code) {
         return new Request.Builder()
                 .url(getUrl(code))
                 .get()
                 .build();
+    }
+
+    private String getResponse(final int code, final Request request) {
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                handleHttpException("Cat not found by code: ", code);
+            }
+
+        } catch (IOException e) {
+            handleHttpException(e.getMessage());
+        }
+
+        return getUrl(code);
+    }
+
+    private void handleHttpException(final String message) {
+        throw new HttpException(message);
+    }
+
+    private void handleHttpException(final String message, final int code) {
+        throw new HttpException(message + code);
     }
 
     private static String getUrl(final int code) {
