@@ -13,7 +13,7 @@ public final class HttpStatusChecker {
     public static final String IMAGE = ".jpg";
     private final OkHttpClient client = new OkHttpClient();
 
-    public String getStatusImage(final int code) {
+    String getStatusImage(final int code) {
         return getResponse(code, getRequest(code));
     }
 

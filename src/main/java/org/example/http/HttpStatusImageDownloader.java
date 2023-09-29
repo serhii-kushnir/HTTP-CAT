@@ -13,7 +13,7 @@ public final class HttpStatusImageDownloader {
     private final HttpStatusChecker checker = new HttpStatusChecker();
     private final OkHttpClient client = new OkHttpClient();
 
-    public void downloadStatusImage(final int code) {
+    void downloadStatusImage(final int code) {
         saveResponseToFile(code, getRequest(code));
     }
 
