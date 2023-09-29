@@ -10,7 +10,6 @@ final class App {
     }
 
     public static void main(final String[] args) {
-        System.out.println("Started program!");
         HTTP_IMAGE_STATUS_CLI.askStatus();
     }
 }
