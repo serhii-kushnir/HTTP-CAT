@@ -1,16 +1,15 @@
 package org.example;
 
-import org.example.http.HttpStatusImageDownloader;
+import org.example.http.HttpImageStatusCli;
 
 final class App {
+
+   private static final HttpImageStatusCli HTTP_IMAGE_STATUS_CLI = new HttpImageStatusCli();
 
     private App() {
     }
 
     public static void main(final String[] args) {
-        System.out.println("Started program!");
-
-        new HttpStatusImageDownloader()
-                .downloadStatusImage(200);
+        HTTP_IMAGE_STATUS_CLI.askStatus();
     }
 }

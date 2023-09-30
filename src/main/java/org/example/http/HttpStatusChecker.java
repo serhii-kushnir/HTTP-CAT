@@ -7,13 +7,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public final class HttpStatusChecker {
-
     public static final String HTTPS = "https://";
     public static final String DOMAIN = "http.cat/";
     public static final String IMAGE = ".jpg";
     private final OkHttpClient client = new OkHttpClient();
 
-    public String getStatusImage(final int code) {
+    String getStatusImage(final int code) {
         return getResponse(code, getRequest(code));
     }
 
@@ -27,7 +26,7 @@ public final class HttpStatusChecker {
     private String getResponse(final int code, final Request request) {
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                handleHttpException("Cat not found by code: ", code);
+                handleHttpException("Cat not found by code: " + code);
             }
 
         } catch (IOException e) {
@@ -39,10 +38,6 @@ public final class HttpStatusChecker {
 
     private void handleHttpException(final String message) {
         throw new HttpException(message);
-    }
-
-    private void handleHttpException(final String message, final int code) {
-        throw new HttpException(message + code);
     }
 
     private static String getUrl(final int code) {

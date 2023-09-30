@@ -9,10 +9,10 @@ public class HttpStatusImageDownloaderTest {
     @Test
     public void testCheckStatusCod200() {
         // Given
-        HttpStatusImageDownloader imageDownloader = new HttpStatusImageDownloader();
+        HttpStatusImageDownloader downloader = new HttpStatusImageDownloader();
 
         //When & Then
-        imageDownloader.downloadStatusImage(200);
+        downloader.downloadStatusImage(200);
     }
     @Test
     public void testCheckStatusCod404() {
