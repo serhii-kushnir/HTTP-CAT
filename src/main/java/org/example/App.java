@@ -4,7 +4,7 @@ import org.example.http.HttpImageStatusCli;
 
 final class App {
 
-   private final static HttpImageStatusCli HTTP_IMAGE_STATUS_CLI = new HttpImageStatusCli();
+   private static final HttpImageStatusCli HTTP_IMAGE_STATUS_CLI = new HttpImageStatusCli();
 
     private App() {
     }

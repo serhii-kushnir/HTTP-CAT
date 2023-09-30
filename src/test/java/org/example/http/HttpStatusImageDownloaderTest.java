@@ -2,8 +2,6 @@ package org.example.http;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static org.junit.Assert.*;
 
 public class HttpStatusImageDownloaderTest {
@@ -11,14 +9,10 @@ public class HttpStatusImageDownloaderTest {
     @Test
     public void testCheckStatusCod200() {
         // Given
-        HttpStatusImageDownloader imageDownloader = new HttpStatusImageDownloader();
+        HttpStatusImageDownloader downloader = new HttpStatusImageDownloader();
 
         //When & Then
-        try {
-            imageDownloader.downloadStatusImage(200);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        downloader.downloadStatusImage(200);
     }
     @Test
     public void testCheckStatusCod404() {

@@ -70,5 +70,4 @@ public final class HttpStatusImageDownloader {
     private void handleHttpException(final String message) {
         throw new HttpException(message);
     }
-
 }
