@@ -7,40 +7,30 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public final class HttpStatusChecker {
-    public static final String HTTPS = "https://";
-    public static final String DOMAIN = "http.cat/";
-    public static final String IMAGE = ".jpg";
-    private final OkHttpClient client = new OkHttpClient();
 
-    String getStatusImage(final int code) {
-        return getResponse(code, getRequest(code));
+    //private final OkHttpClient client = new OkHttpClient();
+
+    String getStatusImage(final int statusCode) {
+        return HttpResponse.getResponse(statusCode);
     }
 
-    private Request getRequest(final int code) {
-        return new Request.Builder()
-                .url(getUrl(code))
-                .get()
-                .build();
-    }
+//    private Request getRequest(final int statusCode) {
+//        return new Request.Builder()
+//                .url(HttpUrl.getUrl(statusCode))
+//                .get()
+//                .build();
+//    }
 
-    private String getResponse(final int code, final Request request) {
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                handleHttpException("Cat not found by code: " + code);
-            }
-
-        } catch (IOException e) {
-            handleHttpException(e.getMessage());
-        }
-
-        return getUrl(code);
-    }
-
-    private void handleHttpException(final String message) {
-        throw new HttpException(message);
-    }
-
-    private static String getUrl(final int code) {
-        return HTTPS + DOMAIN + code + IMAGE;
-    }
+//    private String getResponse(final int statusCode, final Request request) {
+//        try (Response response = client.newCall(request).execute()) {
+//            if (!response.isSuccessful()) {
+//                throw new HttpException("Cat not found by statusCode: " + statusCode);
+//            }
+//
+//        } catch (IOException e) {
+//            throw new HttpException(e.getMessage());
+//        }
+//
+//        return HttpUrl.getUrl(statusCode);
+//    }
 }
