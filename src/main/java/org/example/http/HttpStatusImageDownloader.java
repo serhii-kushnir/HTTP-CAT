@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public final class HttpStatusImageDownloader {
+final class HttpStatusImageDownloader {
     private final HttpStatusChecker checker = new HttpStatusChecker();
     private final OkHttpClient client = new OkHttpClient();
 

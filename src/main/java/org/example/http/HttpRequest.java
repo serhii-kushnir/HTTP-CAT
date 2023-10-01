@@ -2,12 +2,12 @@ package org.example.http;
 
 import okhttp3.Request;
 
-public final class HttpRequest {
+final class HttpRequest {
 
     private HttpRequest() {
     }
 
-    public static Request getRequest(final int statusCode) {
+    static Request getRequest(final int statusCode) {
         return new Request.Builder()
                 .url(HttpUrl.getUrl(statusCode))
                 .get()
