@@ -1,15 +1,15 @@
-package org.example.http;
+package org.example.http.utility;
 
 import okhttp3.Request;
 
-final class HttpRequest {
+public final class HttpRequest {
 
     private HttpRequest() {
     }
 
-    static Request getRequest(final int statusCode) {
+    public static Request getRequest(final String url) {
         return new Request.Builder()
-                .url(HttpUrl.getUrl(statusCode))
+                .url(url)
                 .get()
                 .build();
     }

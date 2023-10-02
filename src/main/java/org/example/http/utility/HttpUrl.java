@@ -1,15 +1,14 @@
-package org.example.http;
+package org.example.http.utility;
 
-final class HttpUrl {
-
-    private HttpUrl() {
-    }
-
+public final class HttpUrl {
     private static final String HTTPS = "https://";
     private static final String DOMAIN = "http.cat/";
     private static final String IMAGE = ".jpg";
 
-    static String getUrl(final int statusCode) {
+    private HttpUrl() {
+    }
+
+    public static String getUrl(final int statusCode) {
         return HTTPS + DOMAIN + statusCode + IMAGE;
     }
 }

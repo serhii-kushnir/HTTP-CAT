@@ -1,8 +1,8 @@
 package org.example.http;
 
-final class HttpException extends RuntimeException {
+public final class HttpException extends RuntimeException {
 
-    HttpException(final String message) {
+    public HttpException(final String message) {
         super(message);
     }
 }
