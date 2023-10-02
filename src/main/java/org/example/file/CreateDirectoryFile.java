@@ -2,8 +2,6 @@ package org.example.file;
 
 import java.io.File;
 
-import org.example.http.HttpException;
-
 public final class CreateDirectoryFile {
 
     private CreateDirectoryFile() {
@@ -13,7 +11,7 @@ public final class CreateDirectoryFile {
         File directory = new File(directoryPath);
 
         if (!directory.exists() && !directory.mkdirs()) {
-            throw new HttpException("Failed to create directory: " + directoryPath + " ");
+            System.out.println("Failed to create directory: " + directoryPath);
         }
     }
 }

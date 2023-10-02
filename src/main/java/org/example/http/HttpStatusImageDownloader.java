@@ -13,16 +13,13 @@ import org.example.http.utility.HttpResponse;
 final class HttpStatusImageDownloader {
     private final HttpStatusChecker checker = new HttpStatusChecker();
 
-    void downloadStatusImage(final int statusCode) {
+    void downloadStatusImage(final int statusCode) throws IOException {
         try (Response response = HttpResponse.getResponse(HttpRequest.getRequest(checker.getStatusImage(statusCode)))) {
 
             assert response.body() != null;
             InputStream input = response.body().byteStream();
 
             SaveToFile.saveResponseBody(input, statusCode);
-
-        } catch (IOException e) {
-            throw new HttpException(e.getMessage());
         }
     }
 }

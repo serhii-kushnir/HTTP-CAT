@@ -1,5 +1,6 @@
 package org.example.http;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,6 +20,8 @@ public final class HttpImageStatusCli {
             System.out.println("There is not image for HTTP status " + statusCode);
         } catch (InputMismatchException e) {
             System.out.println("Please enter valid number");
+        } catch (IOException e) {
+            throw new HttpException(e.getMessage());
         }
     }
 }

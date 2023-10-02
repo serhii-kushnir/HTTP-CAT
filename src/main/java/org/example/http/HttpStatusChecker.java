@@ -10,17 +10,14 @@ import org.example.http.utility.HttpUrl;
 
 final class HttpStatusChecker {
 
-    String getStatusImage(final int statusCode) {
+    String getStatusImage(final int statusCode) throws IOException {
         try (Response response = HttpResponse.getResponse(HttpRequest.getRequest(HttpUrl.getUrl(statusCode)))) {
 
             if (!response.isSuccessful()) {
                 throw new HttpException("Cat not found by statusCode: " + statusCode);
             }
 
-        } catch (IOException e) {
-            throw new HttpException(e.getMessage());
         }
-
         return HttpUrl.getUrl(statusCode);
     }
 }
