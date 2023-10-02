@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.example.http.HttpException;
 
-public class CreateDirectoryFile {
+public final class CreateDirectoryFile {
 
     private CreateDirectoryFile() {
     }

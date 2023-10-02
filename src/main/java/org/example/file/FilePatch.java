@@ -1,6 +1,6 @@
 package org.example.file;
 
-public class FilePatch {
+public final class FilePatch {
 
     private FilePatch() {
     }
@@ -10,7 +10,7 @@ public class FilePatch {
         String fileName = "Cat" + statusCode + ".jpg";
         String filePath = directoryPath + fileName;
 
-         CreateDirectoryFile.createDirectoryIfNotExists(directoryPath);
+        CreateDirectoryFile.createDirectoryIfNotExists(directoryPath);
 
         return filePath;
     }
