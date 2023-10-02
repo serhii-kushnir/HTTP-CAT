@@ -4,12 +4,12 @@ import org.example.http.HttpImageStatusCli;
 
 final class App {
 
-   private static final HttpImageStatusCli HTTP_IMAGE_STATUS_CLI = new HttpImageStatusCli();
+   private static final HttpImageStatusCli IMAGE_STATUS_CLI = new HttpImageStatusCli();
 
     private App() {
     }
 
     public static void main(final String[] args) {
-        HTTP_IMAGE_STATUS_CLI.askStatus();
+        IMAGE_STATUS_CLI.askStatus();
     }
 }

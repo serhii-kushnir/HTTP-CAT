@@ -2,45 +2,22 @@ package org.example.http;
 
 import java.io.IOException;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
-public final class HttpStatusChecker {
-    public static final String HTTPS = "https://";
-    public static final String DOMAIN = "http.cat/";
-    public static final String IMAGE = ".jpg";
-    private final OkHttpClient client = new OkHttpClient();
+import org.example.http.utility.HttpRequest;
+import org.example.http.utility.HttpResponse;
+import org.example.http.utility.HttpUrl;
 
-    String getStatusImage(final int code) {
-        return getResponse(code, getRequest(code));
-    }
+final class HttpStatusChecker {
 
-    private Request getRequest(final int code) {
-        return new Request.Builder()
-                .url(getUrl(code))
-                .get()
-                .build();
-    }
+    String getStatusImage(final int statusCode) throws IOException {
+        try (Response response = HttpResponse.getResponse(HttpRequest.getRequest(HttpUrl.getUrl(statusCode)))) {
 
-    private String getResponse(final int code, final Request request) {
-        try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                handleHttpException("Cat not found by code: " + code);
+                throw new HttpException("Cat not found by statusCode: " + statusCode);
             }
 
-        } catch (IOException e) {
-            handleHttpException(e.getMessage());
         }
-
-        return getUrl(code);
-    }
-
-    private void handleHttpException(final String message) {
-        throw new HttpException(message);
-    }
-
-    private static String getUrl(final int code) {
-        return HTTPS + DOMAIN + code + IMAGE;
+        return HttpUrl.getUrl(statusCode);
     }
 }
