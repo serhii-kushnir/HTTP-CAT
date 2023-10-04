@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThrows;
 public class HttpStatusCheckerTest {
 
     @Test
-    public void testCheckStatusCod200() throws IOException {
+    public void testCheckHttStatusCode200() throws IOException {
         // Given
         HttpStatusChecker hsc = new HttpStatusChecker();
 
@@ -20,7 +20,7 @@ public class HttpStatusCheckerTest {
     }
 
     @Test
-    public void testCheckStatusCod404() {
+    public void testCheckHttStatusCode404() {
         // Given
         HttpStatusChecker hsc = new HttpStatusChecker();
 

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FilePatchTest {
 
     @Test
-    void testGetFilePatchStatusCod200() {
+    void testGetFilePatchHttpStatusCode200() {
         // Given
         String filePath = FilePatch.getFilePatch(200);
 
@@ -16,7 +16,7 @@ class FilePatchTest {
     }
 
     @Test
-    void testGetFilePatchStatusCod404() {
+    void testGetFilePatchHttStatusCode404() {
         // Given
         String filePath = FilePatch.getFilePatch(404);
 
