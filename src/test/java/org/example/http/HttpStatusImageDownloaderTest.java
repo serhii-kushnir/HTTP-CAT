@@ -28,3 +28,4 @@ public class HttpStatusImageDownloaderTest {
                 imageDownloader.downloadStatusImage(600));
     }
 }
+//----------------------------------------------------------------
